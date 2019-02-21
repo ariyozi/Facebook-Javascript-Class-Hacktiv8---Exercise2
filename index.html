@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Simple calculator</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row justify-content-center" style="margin-top:20%">
+        <form>
+          <div class="row text-center mb-2">
+            <h1 class="col">Simple Calculator</h1>
+          </div>
+          <div class="row text-center mb-2">
+            <div class="col">
+                <input type="text" id="hasil" class="form-control text-center" readonly placeholder="Hasil">
+              </div>
+          </div>
+          <div class="row">
+            <div class="col-5">
+              <input type="number" id="angka1" class="form-control" placeholder="Masukkan Angka 1" >
+            </div>
+            <div class="col">
+              <select id="seperator" class="form-control">
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="*">x</option>
+                <option value="/">:</option>
+              </select>
+            </div>
+            <div class="col-5">
+              <input type="number" id="angka2" class="form-control" placeholder="Masukkan Angka 2">
+            </div>
+          </div>
+          <div class="row justify-content-center mb-2 mt-2">
+           <button class="btn btn-primary" onclick="hitung()" type="button">Hitung</button>
+          </div>
+        </form>
+      </div>
+    </div>
+      <script>
+          function hitung(){
+            var angka1 = document.getElementById("angka1").value;
+            var angka2 = document.getElementById("angka2").value;
+            var seperator = document.getElementById("seperator").value;
+
+            if(angka1 == undefined || angka1 == null || angka1 == ''){
+              alert("Masukkan angka pertama")
+              document.getElementById("angka1").focus()
+            }else if(angka2 == undefined || angka2 == null || angka2 == ''){
+              alert("Masukkan angka kedua")
+              document.getElementById("angka2").focus()
+            }else if(seperator == undefined || seperator == null){
+              alert("Pilih seperator")
+              document.getElementById("seperator").focus()
+            }else{
+              if(seperator == "+"){
+                document.getElementById("hasil").value = parseInt(angka1) + parseInt(angka2)
+              }else if(seperator == "-"){
+                document.getElementById("hasil").value = parseInt(angka1) - parseInt(angka2)
+              }else if(seperator == "x"){
+                document.getElementById("hasil").value = parseInt(angka1) * parseInt(angka2)
+              }else{
+                document.getElementById("hasil").value = parseInt(angka1) / parseInt(angka2)
+              }
+            }
+          }
+      </script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
